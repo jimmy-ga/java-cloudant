@@ -21,12 +21,13 @@ import static org.junit.Assert.assertTrue;
 import com.cloudant.client.api.CloudantClient;
 import com.cloudant.http.Http;
 import com.cloudant.http.interceptors.ProxyAuthInterceptor;
-import com.squareup.okhttp.mockwebserver.MockResponse;
-import com.squareup.okhttp.mockwebserver.MockWebServer;
-import com.squareup.okhttp.mockwebserver.RecordedRequest;
 
 import org.junit.Rule;
 import org.junit.Test;
+
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
+import okhttp3.mockwebserver.RecordedRequest;
 
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;

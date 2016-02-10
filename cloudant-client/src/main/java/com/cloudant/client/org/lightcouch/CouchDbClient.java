@@ -39,9 +39,11 @@ import com.google.gson.InstanceCreator;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-import com.squareup.okhttp.ConnectionPool;
 
 import org.apache.commons.io.IOUtils;
+
+import okhttp3.ConnectionPool;
+import okhttp3.JavaNetAuthenticator;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -101,8 +103,9 @@ public class CouchDbClient {
                 log.config("Setting max connections to " + maxConns);
                 //keep connections open for as long as possible, anything over 2.5 minutes will be
                 //longer than the server so we'll use a 3 minute timeout
-                ConnectionPool pool = new ConnectionPool(maxConns, TimeUnit.MINUTES.toMillis(3));
-                factory.getOkHttpClient().setConnectionPool(pool);
+                ConnectionPool pool = new ConnectionPool(props.getMaxConnections(), 3l, TimeUnit
+                        .MINUTES);
+                factory.getOkHttpClientBuilder().connectionPool(pool);
             }
             this.factory = factory;
         } else {

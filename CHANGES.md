@@ -1,6 +1,7 @@
 # Unreleased
 - [NEW] Enabled `reduce` and other reduce related parameters to be set when using
   `MultipleRequestBuilder`.
+- [IMPROVED] Upgraded optional okhttp to 3.4.1.
 - [FIX] Consumed response streams in `client.shutdown()` and `CookieInterceptor` to prevent
   connection leaks.
 
