@@ -23,6 +23,7 @@ import com.cloudant.client.org.lightcouch.CouchDbException;
 import com.cloudant.test.main.RequiresCloudantService;
 import com.cloudant.tests.util.CloudantClientResource;
 import com.cloudant.tests.util.MockWebServerResources;
+import com.cloudant.tests.util.ParameterizedHttp;
 
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -36,7 +37,7 @@ import okhttp3.mockwebserver.MockWebServer;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSocketFactory;
 
-public class SslAuthenticationTest {
+public class SslAuthenticationTest extends ParameterizedHttp {
 
     @ClassRule
     public static CloudantClientResource dbClientResource = new CloudantClientResource();
